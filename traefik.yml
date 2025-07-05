@@ -1,0 +1,22 @@
+entryPoints:
+  http:
+    address: ":8080"
+http:
+  routers:
+    auth-test:
+      rule: Host(`localhost`)
+      entryPoints:
+        - http
+      middlewares:
+        - auth-middleware
+      service: noop
+  middlewares:
+    auth-middleware:
+      forwardAuth:
+        address: http://auth:5000/auth
+        trustForwardHeader: true
+  services:
+    noop:
+      loadBalancer:
+        servers:
+          - url: "http://auth:5000"
