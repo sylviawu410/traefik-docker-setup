@@ -1,6 +1,6 @@
 # Traefik Auth Request Demo
 
-This project demonstrates how to use Traefik's ForwardAuth middleware to authenticate requests based on HTTP headers.
+This project demonstrates Traefik's ForwardAuth middleware to authenticate requests based on HTTP headers.
 
 ## Architecture
 
